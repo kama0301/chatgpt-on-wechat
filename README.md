@@ -4,17 +4,22 @@
 
 最新版本支持的功能如下：
 
+- [x] **多端部署：** 有多种部署方式可选择且功能完备，目前已支持个人微信，微信公众号和企业微信应用等部署方式
 - [x] **基础对话：** 私聊及群聊的消息智能回复，支持多轮会话上下文记忆，支持 GPT-3，GPT-3.5，GPT-4模型
 - [x] **语音识别：** 可识别语音消息，通过文字或语音回复，支持 azure, baidu, google, openai等多种语音模型
-- [x] **图片生成：** 支持图片生成 和 照片修复，可选择 Dell-E, stable diffusion, replicate 模型
+- [x] **图片生成：** 支持图片生成 和 图生图（如照片修复），可选择 Dell-E, stable diffusion, replicate模型
 - [x] **丰富插件：** 支持个性化插件扩展，已实现多角色切换、文字冒险、敏感词过滤、聊天记录总结等插件
 - [X] **Tool工具：** 与操作系统和互联网交互，支持最新信息搜索、数学计算、天气和资讯查询、网页总结，基于 [chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub) 实现
 
-> 目前已支持 个人微信 和 微信公众号，欢迎接入更多应用，参考 [Terminal代码](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/terminal/terminal_channel.py)实现接收和发送消息逻辑即可接入。 同时欢迎增加新的插件，参考 [插件说明文档](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins)。
+> 欢迎接入更多应用，参考 [Terminal代码](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/terminal/terminal_channel.py)实现接收和发送消息逻辑即可接入。 同时欢迎增加新的插件，参考 [插件说明文档](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins)。
 
 **一键部署:**
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qApznZ?referralCode=RC3znh)
+- 个人微信
+  
+  [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qApznZ?referralCode=RC3znh)
+- 企业微信应用号
+  
+  [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/-FHS--?referralCode=RC3znh)
 
 # 演示
 
@@ -24,7 +29,9 @@ Demo made by [Visionn](https://www.wangpc.cc/)
 
 # 更新日志
 
->**2023.04.05：** 支持微信公众号部署，兼容角色扮演等预设插件，[使用文档](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/wechatmp/README.md)。(contributed by [@JS00000](https://github.com/JS00000) in [#686](https://github.com/zhayujie/chatgpt-on-wechat/pull/686))
+>**2023.04.26：** 支持企业微信应用号部署，兼容插件，并支持语音图片交互，支持Railway部署，[使用文档](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/wechatcom/README.md)。(contributed by [@lanvent](https://github.com/lanvent) in [#944](https://github.com/zhayujie/chatgpt-on-wechat/pull/944))
+
+>**2023.04.05：** 支持微信公众号部署，兼容插件，并支持语音图片交互，[使用文档](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/wechatmp/README.md)。(contributed by [@JS00000](https://github.com/JS00000) in [#686](https://github.com/zhayujie/chatgpt-on-wechat/pull/686))
 
 >**2023.04.05：** 增加能让ChatGPT使用工具的`tool`插件，[使用文档](https://github.com/goldfishh/chatgpt-on-wechat/blob/master/plugins/tool/README.md)。工具相关issue可反馈至[chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub)。(contributed by [@goldfishh](https://github.com/goldfishh) in [#663](https://github.com/zhayujie/chatgpt-on-wechat/pull/663))
 
@@ -80,14 +87,12 @@ pip3 install -r requirements-optional.txt
 
 参考[#415](https://github.com/zhayujie/chatgpt-on-wechat/issues/415)
 
-使用`azure`语音功能需安装依赖（列在`requirements-optional.txt`内，但为便于`railway`部署已注释）:
+使用`azure`语音功能需安装依赖，并参考[文档](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python&tabs=linux%2Cubuntu%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi)的环境要求。
+:
 
 ```bash
 pip3 install azure-cognitiveservices-speech
 ```
-
-> 目前默认发布的镜像和`railway`部署，都基于`apline`，无法安装`azure`的依赖。若有需求请自行基于[`debian`](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/docker/Dockerfile.debian.latest)打包。
-参考[文档](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python&tabs=linux%2Cubuntu%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi)
 
 ## 配置
 
